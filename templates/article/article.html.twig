@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/article.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="cards">
+        {% for article in articles %}
+            {% include 'service/_card.html.twig'%}
+        {% endfor %}
+    </div>
+{% endblock %}
