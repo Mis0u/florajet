@@ -22,7 +22,7 @@ symfony console make:migration
 symfony console d:m:m
 ```
 
-Lancer la commande qui vous permettra de récupérer les différents articles à partir de l'api **https://saurav.tech/NewsAPI/top-headlines/category/health/fr.json**,
+Lancer la commande `symfony console app:create-articles` qui vous permettra de récupérer les différents articles à partir de l'api **https://saurav.tech/NewsAPI/top-headlines/category/health/fr.json**,
 du flux RSS **http://www.lemonde.fr/rss/une.xml** et du CSV se trouvant dans le répertoire `src/File`
 
 Lancer votre server :
