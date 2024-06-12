@@ -2,11 +2,31 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
+#[ApiResource(
+    operations: [
+        new GetCollection(uriTemplate: '/article'),
+        new Get(uriTemplate: '/article/{id}'),
+        new Patch(uriTemplate: '/article/{id}'),
+        new Delete(uriTemplate: '/article/{id}'),
+    ]
+)]
+#[ApiFilter(SearchFilter::class, properties: [
+    'title' => 'partial',
+    'author' => 'partial',
+    'content' => 'partial',
+])]
 class Article
 {
     #[ORM\Id]
