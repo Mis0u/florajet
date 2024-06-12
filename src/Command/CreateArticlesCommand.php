@@ -111,12 +111,13 @@ class CreateArticlesCommand extends Command
             $article = new Article();
             $article->setTitle($data[0])
                 ->setAuthor($data[1])
-                ->setPublishedAt(new \DateTimeImmutable(trim($data[3], '" ')))
                 ->setContent($data[2])
+                ->setPublishedAt(new \DateTimeImmutable(trim($data[3], '" ')))
                 ->setSource(self::CSV)
             ;
             $this->entityManager->persist($article);
         }
+        fclose($handle);
         $this->entityManager->flush();
     }
 
