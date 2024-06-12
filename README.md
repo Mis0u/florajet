@@ -1,6 +1,11 @@
 # Florajet
 
-Faire un `git clone` du projet puis aller à la racine.
+Faire un `git clone` du projet puis aller à la racine. Créer le `.env` à la racine et préciser la base de donnée qui correspond
+au compose.yaml
+
+```bash
+DATABASE_URL="mysql://root:root@127.0.0.1:3307/app?serverVersion=11&charset=utf8mb4"
+```
 
 Effectuer :
 
